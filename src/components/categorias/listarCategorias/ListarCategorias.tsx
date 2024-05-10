@@ -3,6 +3,7 @@ import Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
 import CardCategorias from "../cardCategorias/CardCategorias";
 import { Dna } from "react-loader-spinner";
+import { toastAlerta } from "../../../util/toastAlert";
 
 function ListaCategorias() {
     const [categorias, setCategorias] = useState<Categoria[]>([]);
@@ -14,7 +15,7 @@ function ListaCategorias() {
           );
       } catch (error: any) {
         if (error.toString().includes('401')) {
-          alert('Erro encontrado')
+          toastAlerta('Erro encontrado', 'erro')
         }
       }
     }
